@@ -1,0 +1,25 @@
+{
+  "name": "idoine-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nemabso/Idoine-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nemabso/Idoine-backend/issues"
+  },
+  "homepage": "https://github.com/Nemabso/Idoine-backend#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mongodb": "^5.1.0",
+    "mongoose": "^7.0.2"
+  }
+}
