@@ -1,10 +1,20 @@
+const express = require("express");
 require('dotenv').config();
 const mongoose = require('mongoose');
+const Review = require('./src/models/review');
+const { connectDB } = require('./src/services/mongoose');
 
-console.log(process.env.DB_URL)
+const port = process.env.PORT || 5000;
 
-async function main() {
-    
-}
+const app = express();
 
-main().catch(err => console.log(err));
+const reviewRouter = require('./src/routes/review');
+
+connectDB().catch(err => console.log(err));
+
+app.use(express.json());
+app.use('/review', reviewRouter);
+
+app.listen(port, () => {
+    console.log(`Server started at: http://localhost:${port}`);
+})
