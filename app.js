@@ -1,4 +1,5 @@
-const express = require("express");
+const express = require('express');
+const cors = require('cors');
 require('dotenv').config();
 const mongoose = require('mongoose');
 const Review = require('./src/models/review');
@@ -12,6 +13,7 @@ const reviewRouter = require('./src/routes/review');
 
 connectDB().catch(err => console.log(err));
 
+app.use(cors());
 app.use(express.json());
 app.use('/review', reviewRouter);
 
