@@ -1,13 +1,15 @@
 const Review = require('../models/review');
 
 const getAll = async (req, res, next) => {
+    console.log('requesting reviews')
     try {
         const reviews = await Review.find({});
         res.send(reviews);
     } catch (err) {
-        res.status(500).send(e);
+        console.log("Erreur dans la route getAll (reviews)")
+        res.status(500).send(err);
     }
-    next();
+    //next();
 }
 
 const create = async (req, res, next) => {
@@ -19,7 +21,7 @@ const create = async (req, res, next) => {
     } catch (err) {
         res.status(400).send(err);
     }
-    next();
+    //next();
 }
 
 module.exports = {
