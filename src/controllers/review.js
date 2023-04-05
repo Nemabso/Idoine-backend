@@ -1,7 +1,6 @@
 const Review = require('../models/review');
 
 const getAll = async (req, res, next) => {
-    console.log('requesting reviews')
     try {
         const reviews = await Review.find({});
         res.send(reviews);
@@ -13,8 +12,10 @@ const getAll = async (req, res, next) => {
 }
 
 const create = async (req, res, next) => {
-    const review = new Review(req.body);
-    console.log(req.body)
+    const review = new Review({...req.body, type: "learner"});
+    // TODO : handling a password which determinates Review type
+    console.log(review);
+
     try {
         const saveReview = await review.save();
         res.status(201).send(saveReview);

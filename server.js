@@ -6,17 +6,18 @@ const mongoose = require('mongoose');
 const Review = require('./src/models/review');
 const { connectDB } = require('./src/services/mongoose');
 
+const app = express();
+app.use(cors());
+
 console.log('starting server ...')
 
 const port = process.env.PORT || 5000;
 
-const app = express();
 
 const reviewRouter = require('./src/routes/review');
 
 connectDB().catch(err => console.log(err));
 
-app.use(cors());
 app.use(express.json());
 
 // // Have Node serve the files for our built React app
