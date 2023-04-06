@@ -4,5 +4,6 @@ const reviewController = require('../controllers/review');
 
 router.get('/', reviewController.getAll);
 router.post('/create', reviewController.create);
+router.post('/submit', reviewController.checkIfValid);
 
 module.exports = router;

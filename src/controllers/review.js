@@ -11,6 +11,18 @@ const getAll = async (req, res, next) => {
     //next();
 }
 
+const checkIfValid = (req, res, next) => {
+    const review = new Review({...req.body, type: "validate"});
+    const error = review.validateSync();
+
+    if (error) {
+        res.status(400).json(error);
+    }
+    else {
+        res.status(202).send(validateReview);
+    }
+}
+
 const create = async (req, res, next) => {
     const review = new Review({...req.body, type: "learner"});
     // TODO : handling a password which determinates Review type
@@ -26,5 +38,5 @@ const create = async (req, res, next) => {
 }
 
 module.exports = {
-    getAll, create,
+    getAll, create, checkIfValid,
 };
