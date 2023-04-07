@@ -43,7 +43,10 @@ const reviewSchema = new mongoose.Schema({
     type: {
         type: String,
         required: true,
-        enum: ["employer", "learner", "poleEmploi", "validate"]
+        enum: {
+            values: ["employer", "learner", "poleEmploi", "validate"],
+            message: "Mot de passe incorrect."
+        }
         // validate is used as placeholder value to validate review against this schema through checkIfValid method
     }
 })

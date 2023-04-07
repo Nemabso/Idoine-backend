@@ -1,4 +1,5 @@
 const Review = require('../models/review');
+const security = require('../utils/security');
 
 const getAll = async (req, res, next) => {
     try {
@@ -12,19 +13,19 @@ const getAll = async (req, res, next) => {
 }
 
 const checkIfValid = (req, res, next) => {
-    const review = new Review({...req.body, type: "validate"});
+    const review = new Review({...req.body.review, type: "validate"});
     const error = review.validateSync();
 
-    if (error) {
-        res.status(400).json(error);
+    if (!error) {
+        res.status(202).send(review);
     }
     else {
-        res.status(202).send(validateReview);
+        res.status(400).json(error);
     }
 }
 
 const create = async (req, res, next) => {
-    const review = new Review({...req.body, type: "learner"});
+    const review = new Review({...req.body.review, type: security.matchReviewType(req.body.password)});
     // TODO : handling a password which determinates Review type
     console.log(review);
 
