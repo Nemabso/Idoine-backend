@@ -17,7 +17,7 @@ const checkIfValid = (req, res, next) => {
     const error = review.validateSync();
 
     if (!error) {
-        res.status(202).send(review);
+        res.status(200).send(review);
     }
     else {
         res.status(400).json(error);

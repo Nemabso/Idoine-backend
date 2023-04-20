@@ -32,7 +32,7 @@ const reviewSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        minLength: [30, "Votre commentaire doit faire 30 charactères au minimum."]
+        minLength: [10, "Votre commentaire doit faire 10 charactères au minimum."]
     },
     rate: {
         type: Number,
