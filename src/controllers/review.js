@@ -1,5 +1,7 @@
 const Review = require('../models/review');
+const LearnerReview = require('../models/learnerReview');
 const security = require('../utils/security');
+const learnerReview = require('../models/learnerReview');
 
 const getAll = async (req, res, next) => {
     try {
@@ -13,7 +15,7 @@ const getAll = async (req, res, next) => {
 }
 
 const checkIfValid = (req, res, next) => {
-    const review = new Review({...req.body.review, type: "validate"});
+    const review = createInstance(req.body);
     const error = review.validateSync();
 
     if (!error) {
@@ -25,9 +27,12 @@ const checkIfValid = (req, res, next) => {
 }
 
 const create = async (req, res, next) => {
-    const review = new Review({...req.body.review, type: security.matchReviewType(req.body.password)});
-    // TODO : handling a password which determinates Review type
-    console.log(review);
+    if(!security.checkPassword(req.body.type, req.body.password)) {
+        res.status(401).send("Mot de passe erroné !");
+        return;
+    }
+
+    const review = createInstance(req.body);
 
     try {
         const saveReview = await review.save();
@@ -36,6 +41,14 @@ const create = async (req, res, next) => {
         res.status(400).send(err);
     }
     //next();
+}
+
+// Creates instance of the right review type
+function createInstance(body) {
+    switch (body.type) {
+        case "learner": return new LearnerReview({...body.review});
+        default: break;
+    }
 }
 
 module.exports = {

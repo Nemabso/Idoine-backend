@@ -1,14 +1,11 @@
 const reviewPasswords = {
     learner: "Apprenant",
-    poleEmploi: "Pole Emploi",
+    financer: "Pole Emploi",
     employer: "Employeur",
 }
 
-function matchReviewType(input) {
-    for (const type in reviewPasswords) {
-        if (reviewPasswords[type] === input) return type;
-    }
-    return "Wrong password";
+function checkPassword(type, password) {
+    return reviewPasswords[type] === password;
 }
 
-module.exports = {matchReviewType};
+module.exports = {checkPassword};
