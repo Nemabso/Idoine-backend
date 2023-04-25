@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8442b4a9.css",
+    "main.js": "/static/js/main.b525ea5e.js",
+    "static/js/787.d8c6ec95.chunk.js": "/static/js/787.d8c6ec95.chunk.js",
+    "static/media/expertises.png": "/static/media/expertises.2a8d7b4c27b8502ab6f0.png",
+    "static/media/forma4.png": "/static/media/forma4.061b2a2dffd64422b0ed.png",
+    "static/media/forma1.png": "/static/media/forma1.66aa126b287900582868.png",
+    "static/media/home.png": "/static/media/home.10755daaa009478cd782.png",
+    "static/media/forma2.png": "/static/media/forma2.fa903d23323616f42a67.png",
+    "static/media/forma3.png": "/static/media/forma3.34997e00329c53aaae48.png",
+    "static/media/article1.png": "/static/media/article1.a5463dcf9a987f5afed7.png",
+    "static/media/mission.png": "/static/media/mission.7773cadb44962fc6884f.png",
+    "static/media/financer.png": "/static/media/financer.130a69c9a72294b1762c.png",
+    "static/media/team.png": "/static/media/team.54507cf48b555fe3e832.png",
+    "static/media/forma5.jpg": "/static/media/forma5.f181d2abef83dd06492f.jpg",
+    "static/media/shakinghand.jpg": "/static/media/shakinghand.f181d2abef83dd06492f.jpg",
+    "static/media/team2.jpg": "/static/media/team2.531251ad93acc9489792.jpg",
+    "static/media/akto.png": "/static/media/akto.44453aa0713ccaa1d03d.png",
+    "static/media/logoIdoine.png": "/static/media/logoIdoine.36c66e15477545d13756.png",
+    "static/media/emploi.png": "/static/media/emploi.764d2522c9760d2130f5.png",
+    "static/media/logoSite.jpeg": "/static/media/logoSite.26aab14a3f69a18ea92b.jpeg",
+    "static/media/flesh.png": "/static/media/flesh.489aedd2ffcd6976efbd.png",
+    "static/media/logofinance.png": "/static/media/logofinance.cb923cf673ac9d0ad3b0.png",
+    "static/media/quote.png": "/static/media/quote.0b292915137dbfeb97b8.png",
+    "static/media/technique.svg": "/static/media/technique.08a96473f84cc05d641a27b91e1484ae.svg",
+    "static/media/gestion.svg": "/static/media/gestion.62d5a8d29a46adcbb727d6c3f5808de0.svg",
+    "static/media/handshak.svg": "/static/media/handshak.3a6cf55477243e1013fc3a8b3329f646.svg",
+    "static/media/management.svg": "/static/media/management.91b57f775c0f7998563b129f62cd4b57.svg",
+    "static/media/cooking.svg": "/static/media/cooking.21241876b21ab906568945e9ec237621.svg",
+    "index.html": "/index.html",
+    "main.8442b4a9.css.map": "/static/css/main.8442b4a9.css.map",
+    "main.b525ea5e.js.map": "/static/js/main.b525ea5e.js.map",
+    "787.d8c6ec95.chunk.js.map": "/static/js/787.d8c6ec95.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8442b4a9.css",
+    "static/js/main.b525ea5e.js"
+  ]
+}
