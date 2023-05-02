@@ -1,6 +1,6 @@
 const reviewPasswords = {
     learner: "Apprenant",
-    financer: "Pole Emploi",
+    funding: "Pole Emploi",
     employer: "Employeur",
 }
 

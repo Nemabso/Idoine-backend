@@ -1,7 +1,7 @@
 const Review = require('../models/review');
 const LearnerReview = require('../models/learnerReview');
+const FundingReview = require('../models/fundingReview');
 const security = require('../utils/security');
-const learnerReview = require('../models/learnerReview');
 
 const getAll = async (req, res, next) => {
     try {
@@ -47,6 +47,7 @@ const create = async (req, res, next) => {
 function createInstance(body) {
     switch (body.type) {
         case "learner": return new LearnerReview({...body.review});
+        case "funding": return new FundingReview({...body.review});
         default: break;
     }
 }
