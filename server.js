@@ -3,7 +3,6 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 const mongoose = require('mongoose');
-const Review = require('./src/models/review');
 const { connectDB } = require('./src/services/mongoose');
 const reviewRouter = require('./src/routes/review');
 

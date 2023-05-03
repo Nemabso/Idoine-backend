@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
-const ratedItem = require("./ratedItem")
+const ratedItem = require("./ratedItem");
 
 const fundingReviewSchema = new mongoose.Schema({
     id: mongoose.Schema.Types.ObjectId,
@@ -37,6 +37,14 @@ const fundingReviewSchema = new mongoose.Schema({
         }
     },
     rates: [ratedItem],
+    avgRate: {
+        type: Number,
+    },
+    status: {
+        type: Number,
+        enum: [0, 1, 2], // 0: pending, 1: validated, 2: refused
+        default: 0,
+    }
 })
 
 module.exports = mongoose.model("fundingReview", fundingReviewSchema);
