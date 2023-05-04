@@ -1,7 +1,8 @@
 const LearnerReview = require('../models/learnerReview');
 const FundingReview = require('../models/fundingReview');
 const EmployerReview = require('../models/employerReview');
-const security = require('../utils/security');
+const ReviewType = require('../models/reviewType');
+const bcrypt = require("bcryptjs");
 
 const getAll = async (req, res, next) => {
     try {
@@ -38,7 +39,14 @@ const checkIfValid = (req, res, next) => {
 }
 
 const create = async (req, res, next) => {
-    if(!security.checkPassword(req.body.type, req.body.password)) {
+    const reviewType = await ReviewType.findOne({type: req.body.type});
+    if (!reviewType) {
+        res.status(404).send("Le type d'avis demandé n'existe pas !");
+        return;
+    }
+
+    const isPasswordValid = await bcrypt.compare(req.body.password, reviewType.password);
+    if(!isPasswordValid) {
         res.status(401).send("Mot de passe erroné !");
         return;
     }

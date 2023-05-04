@@ -67,4 +67,4 @@ const employerReviewSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("employerReview", employerReviewSchema);
+module.exports = mongoose.model("EmployerReview", employerReviewSchema);

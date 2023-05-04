@@ -47,4 +47,4 @@ const fundingReviewSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("fundingReview", fundingReviewSchema);
+module.exports = mongoose.model("FundingReview", fundingReviewSchema);

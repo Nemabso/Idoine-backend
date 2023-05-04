@@ -35,4 +35,4 @@ const learnerReviewSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("learnerReview", learnerReviewSchema);
+module.exports = mongoose.model("LearnerReview", learnerReviewSchema);

@@ -5,6 +5,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const { connectDB } = require('./src/services/mongoose');
 const reviewRouter = require('./src/routes/review');
+const reviewTypeRouter = require('./src/routes/reviewType');
 
 const port = process.env.PORT || 5000;
 
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(express.static(path.resolve(__dirname, process.env.CLIENT_PATH)));
 
 app.use('/api/review', reviewRouter);
+app.use('/api/reviewType', reviewTypeRouter);
 
 // All other GET requests not handled before will return our React app
 app.get('*', (req, res) => {

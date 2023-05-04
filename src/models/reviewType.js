@@ -1,0 +1,23 @@
+const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
+
+const reviewTypeSchema = new mongoose.Schema({
+    id: mongoose.Schema.Types.ObjectId,
+
+    type: {
+        type: String,
+        trim: true,
+        required: true,
+        enum: ["learner", "employer", "funding"],
+        unique: true,
+    },
+
+    password: {
+        type: String,
+        required: true,
+    }
+});
+
+const ReviewType = mongoose.model('ReviewType', reviewTypeSchema);
+
+module.exports = ReviewType;
