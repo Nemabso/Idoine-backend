@@ -45,6 +45,8 @@ const fundingReviewSchema = new mongoose.Schema({
         enum: [0, 1, 2], // 0: pending, 1: validated, 2: refused
         default: 0,
     }
-})
+});
+
+fundingReviewSchema.set('timestamps', true);
 
 module.exports = mongoose.model("FundingReview", fundingReviewSchema);

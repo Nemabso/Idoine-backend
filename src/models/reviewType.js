@@ -18,6 +18,8 @@ const reviewTypeSchema = new mongoose.Schema({
     }
 });
 
+reviewTypeSchema.set('timestamps', true);
+
 const ReviewType = mongoose.model('ReviewType', reviewTypeSchema);
 
 module.exports = ReviewType;
