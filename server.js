@@ -28,11 +28,6 @@ app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, process.env.CLIENT_PATH, 'index.html'));
 });
 
-// // All other GET requests not handled before will return our React app
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, process.env.CLIENT_PATH, 'index.html'));
-});
-
 app.listen(port, () => {
     console.log(`Server started at: http://localhost:${port}`);
 })

@@ -1,6 +1,30 @@
 const ReviewType = require('../models/reviewType');
 const bcrypt = require("bcryptjs");
 
+const getAll = async (req, res, next) => {
+    try {
+        const reviewTypes = await ReviewType.find({});
+        const count = await ReviewType.count();
+        res.send({
+            data: reviewTypes,
+            total: count,
+        });
+    } catch (err) {
+        res.status(500).send(err);
+    }
+    //next();
+}
+
+const getOne = async (req, res, next) => {
+    try {
+        const reviewType = await ReviewType.findById(req.params.id);
+        res.send(reviewType);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+    //next();
+}
+
 const create = async (req, res, next) => {
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
@@ -33,5 +57,5 @@ const update = async (req, res, next) => {
 };
 
 module.exports = {
-    create, update,
+    getAll, getOne, create, update,
 };
