@@ -27,6 +27,23 @@ const create = async (req, res, next) => {
     }
 };
 
+const login = async (req, res, next) => {
+    const user = await User.findOne({login: req.body.login});
+    const isPasswordValid = await bcrypt.compare(req.body.password, user.password);
+
+    if(!isPasswordValid || !user) {
+        res.status(401).send("Mot de passe et/ou login incorrect !");
+        return;
+    }
+
+    try {
+        
+        res.status(200).send();
+    } catch (err) {
+        res.status(401).send(err);
+    }
+}
+
 const update = async (req, res, next) => {       
     // TODO add jwt authentication at this stage
 
@@ -38,5 +55,5 @@ const update = async (req, res, next) => {
 };
 
 module.exports = {
-    getOne, create, update,
+    getOne, create, update, login,
 };
