@@ -19,15 +19,15 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.generateJwt = async () => {
-    return jwt.sign({ _id: this._id }, 'IdoineFormation2023!', { expiresIn: "3600s" })
+    return jwt.sign({ _id: this._id }, process.env.TOKEN_SECRET, { expiresIn: "3600s" });
 }
 
 userSchema.statics.findUser = async (login, password) => {
     const user = await User.findOne({login: login});
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
-    if(!isPasswordValid || !user) throw new Error('Mot de passe et/ou login incorrect !')
-    return user
+    if(!isPasswordValid || !user) return false;
+    return user;
 }
 
 userSchema.set('timestamps', true);

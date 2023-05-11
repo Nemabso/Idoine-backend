@@ -3,10 +3,10 @@ const bcrypt = require("bcryptjs");
 
 const getAll = async (req, res, next) => {
     try {
-        const reviewTypes = await ReviewType.find({}).select('type updatedAt').exec();
+        const reviewTypes = await ReviewType.find({}).select('type createdAt updatedAt').exec();
         const count = await ReviewType.count();
         res.send({
-            data: reviewTypes,
+            list: reviewTypes,
             total: count,
         });
     } catch (err) {
@@ -26,8 +26,6 @@ const getOne = async (req, res, next) => {
 }
 
 const create = async (req, res, next) => {
-    // TODO add jwt authentication at this stage
-
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
     
@@ -45,8 +43,6 @@ const create = async (req, res, next) => {
 };
 
 const update = async (req, res, next) => {       
-    // TODO add jwt authentication at this stage
-
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
