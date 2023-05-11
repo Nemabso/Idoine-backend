@@ -1,13 +1,12 @@
 const mongoose = require("mongoose");
 
-const reviewTypeSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     id: mongoose.Schema.Types.ObjectId,
 
-    type: {
+    login: {
         type: String,
         trim: true,
         required: true,
-        enum: ["learner", "employer", "funding"],
         unique: true,
     },
 
@@ -17,8 +16,8 @@ const reviewTypeSchema = new mongoose.Schema({
     }
 });
 
-reviewTypeSchema.set('timestamps', true);
+userSchema.set('timestamps', true);
 
-const ReviewType = mongoose.model('ReviewType', reviewTypeSchema);
+const User = mongoose.model('User', userSchema);
 
-module.exports = ReviewType;
+module.exports = User;
