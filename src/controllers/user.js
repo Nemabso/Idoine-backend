@@ -28,17 +28,10 @@ const create = async (req, res, next) => {
 };
 
 const login = async (req, res, next) => {
-    const user = await User.findOne({login: req.body.login});
-    const isPasswordValid = await bcrypt.compare(req.body.password, user.password);
-
-    if(!isPasswordValid || !user) {
-        res.status(401).send("Mot de passe et/ou login incorrect !");
-        return;
-    }
-
     try {
-        
-        res.status(200).send();
+        const user = await User.findUser(req.body.login, req.body.password);
+        const token = await user.generateJwt();
+        res.status(200).send(token);
     } catch (err) {
         res.status(401).send(err);
     }
