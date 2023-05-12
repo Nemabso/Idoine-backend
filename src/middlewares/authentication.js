@@ -12,7 +12,7 @@ function authenticateToken(req, res, next) {
         } else {
             return next();
         }
-})
+    })
 }
 
 module.exports = authenticateToken;
