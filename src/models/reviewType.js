@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
 
 const reviewTypeSchema = new mongoose.Schema({
     id: mongoose.Schema.Types.ObjectId,
@@ -17,6 +16,8 @@ const reviewTypeSchema = new mongoose.Schema({
         required: true,
     }
 });
+
+reviewTypeSchema.set('timestamps', true);
 
 const ReviewType = mongoose.model('ReviewType', reviewTypeSchema);
 
